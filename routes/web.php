@@ -12,10 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\Api\TestController;
 
-Route::get('/', function () {
+Route::any('/', function () {
     return view('welcome');
 });
-Route::get('/nihao', function () {
-    return 'welcome to laravel';
+Route::group([
+    'namespace' => 'Api'
+],function(\Illuminate\Routing\Router $router){
+    $router->any('webhook',[TestController::class,'webhook']);
 });
