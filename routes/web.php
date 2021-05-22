@@ -16,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/test', function () {
+Route::get('/zhanglei', function () {
     return 'welcome to laravel';
 });
