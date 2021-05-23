@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\Api\TestController;
 
-Route::any('/test', function () {
-    return view('welcome1');
+Route::any('/', function () {
+    return view('welcome');
 });
 Route::group([
     'namespace' => 'Api'
