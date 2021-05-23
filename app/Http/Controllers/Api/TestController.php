@@ -10,5 +10,6 @@ class TestController extends Controller
 {
     public function webhook(Request $request){
         Log::notice('查看日志：'.json_encode($request));
+        return 'success';
     }
 }
