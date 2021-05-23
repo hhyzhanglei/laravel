@@ -44,6 +44,7 @@ class GenerateOrder extends Command
         $user_id = array_rand($all_user,1);
         Log::notice('用户id'.$user_id);
         $all_goods = Goods::query()->pluck('id')->toArray();
+        Log::notice('商品id'.json_encode($all_goods));
         $goods_id = array_rand($all_goods,1);
         Log::notice('商品id'.$goods_id);
         $order_number = date('YmdHis') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
