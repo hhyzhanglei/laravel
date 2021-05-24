@@ -20,7 +20,7 @@ class ChangeOrderJob implements ShouldQueue
      *
      * @return void
      */
-    public function __construct(Order $order)
+    public function __construct($order)
     {
         Log::notice('队列初始化数据'.json_encode($order));
         $this->order = $order;
