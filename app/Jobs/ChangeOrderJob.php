@@ -14,15 +14,16 @@ use Illuminate\Support\Facades\Log;
 class ChangeOrderJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-    protected $data;
+    protected $order;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct(Order $order)
     {
-        $this->data = $data;
+        Log::notice('队列初始化数据'.json_encode($order));
+        $this->order = $order;
     }
 
     /**
@@ -32,13 +33,7 @@ class ChangeOrderJob implements ShouldQueue
      */
     public function handle()
     {
-        $data = $this->data;
-        foreach ($data as $k => $v){
-            Log::notice('队列执行消费'.json_encode($v));
-            Order::query()->where('id',$v['id'])
-                ->update([
-                    'status' => 2
-                ]);
-        }
+        $data = $this->order;
+        Log::notice('队列handle数据'.json_encode($data));
     }
 }
