@@ -20,7 +20,6 @@ Route::any('/', function () {
 Route::group([
     'namespace' => 'Api'
 ],function(\Illuminate\Routing\Router $router){
-    $router->any('webhook',[TestController::class,'webhook']);
     $router->any('add',[TestController::class,'add']);
     $router->any('addJob',[TestController::class,'addJob']);
 });

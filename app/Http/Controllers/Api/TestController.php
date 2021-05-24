@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Redis;
 
 class TestController extends Controller
 {
-    public function webhook(Request $request){
-        Log::notice('查看日志：'.json_encode($request));
-    }
     public function add(){
         $all_user = Users::query()->pluck('id')->toArray();
         $user_id = array_rand($all_user,1);
