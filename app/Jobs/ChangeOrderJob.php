@@ -35,5 +35,8 @@ class ChangeOrderJob implements ShouldQueue
     {
         $data = $this->order;
         Log::notice('队列handle数据'.json_encode($data));
+        $data->update([
+            'status' => 2
+        ]);
     }
 }
