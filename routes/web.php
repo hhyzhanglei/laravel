@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\Api\TestController;
 
-Route::any('/index', function () {
+Route::any('/', function () {
     return view('welcome');
 });
 Route::group([
