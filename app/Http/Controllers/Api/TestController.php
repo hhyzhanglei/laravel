@@ -38,6 +38,9 @@ class TestController extends Controller
         $order_id = Order::query()->pluck('id')->toArray();
         $id = array_rand($order_id,1);
         $order = Order::query()->find($id);
+        if(!$order){
+            return 'error';
+        }
         Log::notice('推送进队列'.$order);
         ChangeOrderJob::dispatch($order);
     }
