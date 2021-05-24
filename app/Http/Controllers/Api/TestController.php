@@ -38,6 +38,7 @@ class TestController extends Controller
         $order_id = Order::query()->pluck('id')->toArray();
         Log::notice('订单id数据'.json_encode($order_id));
         $id = array_rand($order_id,1);
+        Log::notice('订单id'.json_encode($id));
         $order = Order::query()->find($id);
         if(!$order){
             return 'error';
