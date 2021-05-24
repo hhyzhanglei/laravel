@@ -27,8 +27,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->command(GenerateOrder::class)->everyFiveMinutes();
-        $schedule->command(ChangeOrderStatus::class)->everyMinute();
+//        $schedule->command(GenerateOrder::class)->everyFiveMinutes();
+//        $schedule->command(ChangeOrderStatus::class)->everyMinute();
     }
 
     /**
